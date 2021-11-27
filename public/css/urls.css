@@ -1,0 +1,47 @@
+.urls {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .urls td, .urls th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .urls tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .urls tr:hover {background-color: #ddd;}
+  
+  .urls th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4267B2;
+    color: white;
+  }
+
+  .expire{
+    color: red;
+  }
+
+  .guest{
+    margin-top: 50px;
+  }
+
+  .CButton {
+    transition-duration: 0.4s;
+    background-color: #6984b9;
+    height: 50px;
+    width: 100px;
+    border-radius: 15px;
+    color: white;
+  }
+  
+  .CButton:hover {
+    background-color: #4267B2;
+    color: white;
+  }
+  .accesUrl{
+    text-align: center;
+  }

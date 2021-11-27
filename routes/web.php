@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\ManageUrl;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\ManageUrlController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $urls = ManageUrl::all();
+    return view('guest', ['urls' => $urls]);
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $urls = ManageUrl::all();
+    return view('dashboard', ['urls' => $urls]);
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin/pages', function () {
-    return view('layouts.admin.admin');
-})->middleware(['auth'])->name('admin');
+// Route::get('/admin/pages', function () {
+//     return view('layouts.admin.admin');
+// })->middleware(['auth'])->name('admin');
 
-Route::get('/admin/pages/create/url/shortener', function () {
-    return view('layouts.admin.create-shortener-url');
-})->middleware(['auth'])->name('urlShortener');
+Route::get('/access-link', [ManageUrlController::class, 'accessLink']);
 
 require __DIR__.'/auth.php';

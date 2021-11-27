@@ -9,8 +9,10 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AminUserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ManageUrlController;
 use Illuminate\Support\Facades\Route;
+use App\Models\ManageUrl;
 
 //Register normal user
 Route::get('/register', [RegisteredUserController::class, 'create'])
@@ -65,7 +67,33 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
+               
+Route::resources([
+    'admin/pages' => AdminController::class,
+]);
+
+Route::post('/admin/pages', [ManageUrlController::class, 'urlPortal'])
+                ->middleware(['auth'])
+                ->name('admin');
+
+Route::get('/admin/pages/create/url/shortener', function () {
+    return view('layouts.admin.create-shortener-url');
+})->middleware(['auth'])->name('urlShortener');
 
 Route::post('/admin/pages/create/url/shortener', [ManageUrlController::class, 'store'])
                     ->middleware(['auth'])
                     ->name('urlShortener');
+
+Route::get('/user/links', [ManageUrlController::class, 'store'])
+                    ->middleware(['auth'])
+                    ->name('yourLink');
+Route::get('/user/links', function () {
+    $user = Auth::user();
+    //dd($user);
+    $urls = ManageUrl::select('manage_urls.*')
+                                ->where('user_id', '=', $user->id)
+                                ->get();
+    //dd($urls);
+    return view('layouts.userLinks', ["user" => $user, "urls" => $urls]);
+})->middleware(['auth'])->name('yourLink');
+
