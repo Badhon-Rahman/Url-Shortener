@@ -12,32 +12,24 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        
-        <!-- Toster -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <!-- Toster -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="bg-gray-100">
             @include('layouts.admin.admin-navigation')
             <br>
             <div class="row accesUrl">
-                <div class="col">
-                    <h4 for="url">Pest Shortern Link Here</h4>
-                </div>
-                <div class="col">
-                    <input id="accessUrl" class="form-control mr-sm-2" type="text" name="url" value="" placeholder="Enter your shortern link" required autofocus />
-                </div>
-                <div class="col">
+                <div class="input-group">
+                    <input id="accessUrl" class="form-control center-block" type="text" name="url" value="" placeholder="Pest or Enter your shortern link to access original link" required autofocus />
                     <button class="CButton">
                         {{ __('Access Link') }}
                     </button>
+                </div>
+                <div class="col">
+                    
                 </div>
             </div>
             <br>

@@ -44,4 +44,10 @@
   }
   .accesUrl{
     text-align: center;
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+  .center-block {
+    display: block;
+    
   }

@@ -18,13 +18,13 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table class="urls">
                         <tr>
-                            <th>Unique Shortern Url </th>
+                            <th>Access Shortern Link</th>
                             <th>Expiration Time</th>
                         </tr>
                         @foreach($urls as $url)
                             @if($url->expiration_time > now() && $url->url_type == 'Public')
                                 <tr>
-                                    <td>{{$url->unique_shortern_url }}</td>
+                                    <td><input type="text" value="{{$url->unique_shortern_url }}" readonly></td>
                                     <td>{{$url->expiration_time}}</td>
                                 </tr>
                             @endif
@@ -44,7 +44,6 @@
         let accessLink = $("#accessUrl").val();
         
         if(accessLink != ''){
-            alert(basePath+ " "+ accessLink);
             $.ajax({
                 url :  basePath + '/access-link',
                 type : 'GET',

@@ -12,15 +12,17 @@
         <div class="card-body flex">
             <table class="urls">
                 <tr>
+                    <th>Created By(User Id)</th>
                     <th>Original Url</th>
-                    <th>Unique Shortern Url </th>
+                    <th>Access Shortern Link</th>
                     <th>Access Type</th>
                     <th>Expiration Time</th>
                 </tr>
                 @foreach($urls as $url)
                 <tr>
-                    <td>{{$url->original_url}}</td>
-                    <td>{{$url->unique_shortern_url}}</td>
+                    <td>{{$url->user_id}}</td>
+                    <td style="column-width: 100px;overflow: hidden !important;">{{$url->original_url}}</td>
+                    <td><input type="text" value="{{$url->unique_shortern_url }}" readonly></td>
                     <td>{{$url->url_type}}</td>
                     @if($url->expiration_time > now())
                         <td>{{$url->expiration_time}}</td>

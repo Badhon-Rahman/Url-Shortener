@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <img src="{{URL::to('../resources/asset/url_shortener_logo.png')}}" />
+                <img src="{{ URL::asset('img/url_shortener_logo.png') }}" />
             </a>
         </x-slot>
 
@@ -41,13 +41,14 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <p>Do not have any account?</p>
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                       <strong>{{ __('Register Now') }}</strong>
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button class="ml-3" style="background-color:#4267B2;">
                     {{ __('Log in') }}
                 </x-button>
             </div>

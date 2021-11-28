@@ -38,7 +38,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button class="ml-4 btn-info">
+                <x-button class="ml-4 btn-info" style="background-color:#4267B2;">
                     {{ __('Submit') }}
                 </x-button>
             </div>

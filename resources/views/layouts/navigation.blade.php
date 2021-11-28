@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img style="height:100px;margin: 20px 0px 20px 0px;" src="{{URL::to('../resources/asset/url_shortener_logo.png')}}" />
+                        <img style="height:100px;margin: 20px 0px 20px 0px;" src="{{ URL::asset('img/url_shortener_logo.png') }}" />
                     </a>
                 </div>
 

@@ -16,7 +16,7 @@ class CreateManageUrlsTable extends Migration
         Schema::create('manage_urls', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('original_url');
+            $table->longText('original_url');
             $table->string('unique_shortern_url')->unique();
             $table->boolean('is_active');
             $table->string('url_type');

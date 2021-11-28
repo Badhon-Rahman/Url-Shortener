@@ -11,8 +11,10 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ManageUrlController;
+use App\Http\Controllers\Auth\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\ManageUrl;
+use App\Models\User;
 
 //Register normal user
 Route::get('/register', [RegisteredUserController::class, 'create'])
@@ -84,9 +86,18 @@ Route::post('/admin/pages/create/url/shortener', [ManageUrlController::class, 's
                     ->middleware(['auth'])
                     ->name('urlShortener');
 
+Route::get('/admin/pages/active/user', [AdminController::class, 'store'])
+                    ->middleware(['auth'])
+                    ->name('ourUser');
+
+Route::get('/admin/pages/active/user', function () {
+    $users = User::all();
+    return view('layouts..admin.our-user', ["users" => $users]);
+})->middleware(['auth'])->name('ourUser');
+
 Route::get('/user/links', [ManageUrlController::class, 'store'])
                     ->middleware(['auth'])
-                    ->name('yourLink');
+                    ->name('yourLinkStore');
 Route::get('/user/links', function () {
     $user = Auth::user();
     //dd($user);
@@ -96,4 +107,11 @@ Route::get('/user/links', function () {
     //dd($urls);
     return view('layouts.userLinks', ["user" => $user, "urls" => $urls]);
 })->middleware(['auth'])->name('yourLink');
+
+Route::put('/user/{id}', [UserController::class, 'getUser'])
+                    ->middleware(['auth']);
+
+Route::delete('/user/delete/{id}', [UserController::class, 'deleteUser'])
+            ->middleware(['auth'])
+            ->name('deleteUser');
 

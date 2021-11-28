@@ -15,14 +15,14 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-12xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-yourLink-tab" data-bs-toggle="tab" data-bs-target="#nav-yourLink" type="button" role="tab" aria-controls="nav-yourLink" aria-selected="true">Your Links</button>
                             <button class="nav-link" id="nav-newLink-tab" data-bs-toggle="tab" data-bs-target="#nav-newLink" type="button" role="tab" aria-controls="nav-newLink" aria-selected="false">Create New Link</button>
-                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">User</button>
                         </div>
                     </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -31,14 +31,14 @@
                         <table class="urls">
                             <tr>
                                 <th>Original Url</th>
-                                <th>Unique Shortern Url </th>
+                                <th>Access Shortern Link</th>
                                 <th>Access Type</th>
                                 <th>Expiration Time</th>
                             </tr>
                             @foreach($urls as $url)
                             <tr>
-                                <td>{{$url->original_url}}</td>
-                                <td>{{$url->unique_shortern_url }}</td>
+                                <td style="column-width: 100px;overflow: hidden !important;">{{$url->original_url}}</td>
+                                <td><input type="text" value="{{$url->unique_shortern_url }}" readonly></td>
                                 <td>{{$url->url_type }}</td>
                                 @if($url->expiration_time > now())
                                     <td>{{$url->expiration_time}}</td>
@@ -86,7 +86,7 @@
                             </div>
 
                             <div class="flex items-center justify-end mt-4">
-                                <x-button class="ml-4 btn-info">
+                                <x-button class="ml-4 btn-info" style="background-color:#4267B2;">
                                     {{ __('Submit') }}
                                 </x-button>
                             </div>
@@ -130,7 +130,7 @@
                         window.open( data[0].original_url, '_blank');
                     }
                     else{
-                        alert('This Shortern link has been expired.'); 
+                        alert('This Link can not access.'); 
                     }    
                 },
                 error : function(request,error)

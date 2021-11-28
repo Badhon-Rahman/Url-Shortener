@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('admin') }}">
-                        <img style="height:100px;margin: 20px 0px 20px 0px;" src="{{URL::to('../resources/asset/url_shortener_logo.png')}}" />
+                        <img style="height:100px;margin: 20px 0px 20px 0px;" src="{{ URL::asset('img/url_shortener_logo.png') }}" />
                     </a>
                 </div>
 
@@ -17,6 +17,9 @@
                     </x-nav-link>
                     <x-nav-link :href="route('urlShortener')" :active="request()->routeIs('urlShortener')">
                         {{ __('Create Shortener Url') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('ourUser')" :active="request()->routeIs('ourUser')">
+                        {{ __('Our User') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -67,7 +70,13 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
-                {{ __('Admin') }}
+                {{ __('Admin Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('urlShortener')" :active="request()->routeIs('urlShortener')">
+                {{ __('Create Shortener Url') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('ourUser')" :active="request()->routeIs('ourUser')">
+                {{ __('Our User') }}
             </x-responsive-nav-link>
         </div>
 

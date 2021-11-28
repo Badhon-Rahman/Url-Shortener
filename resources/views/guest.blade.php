@@ -65,29 +65,25 @@
                 </div>
                 </nav>
                 <br>
-            <div class="row accesUrl">
-                <div class="col">
-                    <h4 for="url">Pest Shortern Link Here</h4>
+                <div class="row accesUrl">
+                    <div class="input-group">
+                        <input id="accessUrl" class="form-control center-block" type="text" name="url" value="" placeholder="Pest or Enter your shortern link to access original link" required autofocus />
+                        <button class="CButton">
+                            {{ __('Access Link') }}
+                        </button>
+                    </div>
                 </div>
-                <div class="col">
-                    <input id="accessUrl" class="form-control mr-sm-2" type="text" name="url" value="" placeholder="Enter your shortern link" required autofocus />
-                </div>
-                <div class="col">
-                    <button class="CButton">
-                        {{ __('Access Link') }}
-                    </button>
-                </div>
-             </div>
+                <br>
             <div class="flex">
                 <table class="urls">
                     <tr>
-                        <th>Unique Shortern Url </th>
+                        <th>Access Shortern Link</th>
                         <th>Expiration Time</th>
                     </tr>
                     @foreach($urls as $url)
                         @if($url->expiration_time > now() && $url->url_type == 'Public')
                             <tr>
-                                <td>{{$url->unique_shortern_url}}</td>
+                                <td><input type="text" value="{{$url->unique_shortern_url }}" readonly></td>
                                 <td>{{$url->expiration_time}}</td>
                             </tr>
                         @endif
