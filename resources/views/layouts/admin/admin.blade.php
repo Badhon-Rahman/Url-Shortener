@@ -56,7 +56,7 @@
                         window.open( data[0].original_url, '_blank');
                     }
                     else{
-                        alert('This Shortern link has been expired.');
+                        alert('This link has been expired or can not access.');
                     }    
                 },
                 error : function(request,error)

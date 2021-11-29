@@ -4,7 +4,7 @@
         <!-- Page Heading -->
     <header class="bg-white shadow" style="text-align:center;">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> 
-            <strong>Url Dashboard</strong>
+            <strong>Our user</strong>
         </div>
     </header>
     <div class="card" style="width: auto">
@@ -27,7 +27,11 @@
                     @else
                     <td>Public User</td>
                     @endif
+                    @if($user->is_admin != 1)
                     <td><a class="btn btn-info" onclick="updateUser({{$user}})" type="button" data-bs-toggle="modal" href="#UpdateUserModal">update</a> <button class="btn btn-danger" type="button" onclick="deleteUser('{{$user->id}}')" data-bs-toggle="modal" href="#deleteUserModal">delete</button></td>
+                    @else
+                    <td>Admin user</td>
+                    @endif
                 </tr>
                 @endforeach
             </table>
