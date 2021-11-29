@@ -29,12 +29,15 @@
                     min="<?php echo date('Y-m-d h:m');?>" max="2100-06-14T00:00">
             </div>
 
-            <div class="mt-4">
+            <div class="">
+                <br>
                 <p>Select your link type:</p>
-                <input type="radio" id="Private" name="linkType" value="Private">
-                <label for="Private">Private</label><br>
-                <input type="radio" id="Public" name="linkType" value="Public">
-                <label for="Public">Public</label><br>
+                <div>
+                    <input type="radio" id="Private" name="linkType" value="Private">
+                    <label for="Private">Private</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="Public" name="linkType" value="Public">
+                    <label for="Public">Public</label>
+                </div>
             </div>
 
             <div class="flex items-center justify-end mt-4">

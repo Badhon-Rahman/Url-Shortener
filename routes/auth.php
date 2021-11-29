@@ -115,3 +115,9 @@ Route::delete('/user/delete/{id}', [UserController::class, 'deleteUser'])
             ->middleware(['auth'])
             ->name('deleteUser');
 
+Route::put('/update/url/{urlId}', [ManageUrlController::class, 'updateLink'])
+                    ->middleware(['auth']);
+
+Route::delete('/delete/url/{urlId}', [ManageUrlController::class, 'destroy'])
+                    ->middleware(['auth']);
+
